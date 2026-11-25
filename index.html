@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Punla — The Eco-Sustainable Pencil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D5B8;--paper2:#EFE2CA;--clay:#B5603D;--char:#26231F;--leaf:#4C8A3A;--leaf2:#2F6226;--ink:#2A2620;--mute:#6B5F4D;--card:#F6EEDC;--line:#CDB98F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1E1B17;--paper2:#25211C;--clay:#D58A62;--char:#0F0E0C;--leaf:#7DBB66;--leaf2:#9AD085;--ink:#EBDFC6;--mute:#AFA189;--card:#2B2620;--line:#4A4136}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:56px;height:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Georgia,sans-serif;line-height:1.05;margin:0}
+h2{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.02em}
+h3{font-size:21px;font-weight:800}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;height:52px;white-space:nowrap}
+nav b{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;margin-right:auto}
+nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--mute)}
+nav a:hover{color:var(--leaf)}
+.btn{display:inline-block;background:var(--char);color:#F3E8D0;border:0;border-radius:999px;padding:12px 22px;font:600 16px Figtree,sans-serif;cursor:pointer;text-decoration:none}
+.btn.g{background:var(--leaf2);color:#fff}.btn.o{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.hero{padding:48px 0 64px}
+.hero h1{font-size:clamp(64px,15vw,150px);font-weight:800;letter-spacing:-.04em}
+.hero .tag{font:800 clamp(22px,4vw,34px)/1.1 'Bricolage Grotesque',sans-serif;color:var(--clay);margin:10px 0 18px}
+.hero svg{width:100%;height:auto;margin:34px 0 8px;display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
+.fact{border-left:4px solid var(--leaf);padding:4px 0 4px 14px}.fact b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:20px}
+.fact span{color:var(--mute);font-size:15px}
+.band{background:var(--paper2);border-block:1px solid var(--line)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+/* tracker */
+.trk{display:grid;gap:18px;grid-template-columns:1fr;margin-top:28px}
+@media(min-width:860px){.trk{grid-template-columns:5fr 6fr}}
+label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
+select,input[type=date],input[type=text]{width:100%;font:500 16px Figtree,sans-serif;padding:11px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.bigday{display:flex;align-items:baseline;gap:14px;margin:6px 0 2px}
+.bigday b{font:800 84px/1 'Bricolage Grotesque',sans-serif;color:var(--leaf2)}
+.bigday span{font-size:18px;color:var(--mute)}
+.ruler{position:relative;height:70px;margin:20px 0 8px;border-bottom:3px solid var(--char);background:repeating-linear-gradient(90deg,var(--mute) 0 1.5px,transparent 1.5px calc(100%/30)) bottom/100% 14px no-repeat}
+.ruler .fill{position:absolute;left:0;bottom:0;height:12px;background:var(--leaf);width:0;border-radius:0 6px 0 0;transition:width .6s}
+.ruler .pin{position:absolute;bottom:12px;transform:translateX(-50%);transition:left .6s;font-size:11px}
+.ruler svg{display:block;width:34px;height:46px}
+.ticks{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}
+.stages{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px}
+.stages li{padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);font-size:15px}
+.stages li b{display:block;font-size:16px}
+.stages li.on{background:var(--leaf2);color:#fff;border-color:var(--leaf2)}
+.stages li.done{opacity:.6}
+.chk{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;font-weight:500}
+.chk input{width:22px;height:22px;accent-color:var(--leaf2)}
+.hist{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0 18px}
+.hist i{width:18px;height:18px;border-radius:5px;background:var(--line);display:block}
+.hist i.p{background:#A9C79A}.hist i.f{background:var(--leaf2)}
+.notes{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.notes li{background:var(--paper);border-radius:10px;padding:10px 12px;font-size:15px;display:flex;gap:10px;justify-content:space-between}
+.notes button{background:none;border:0;color:var(--mute);cursor:pointer;font-size:18px}
+.empty{color:var(--mute);font-size:15px}
+.mini{font-size:14px;color:var(--mute)}
+/* anatomy */
+.anat svg{width:100%;height:auto;display:block}
+.part{cursor:pointer;opacity:.55;transition:opacity .2s}.part.on{opacity:1}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tabs button{font:600 15px Figtree,sans-serif;padding:10px 16px;border-radius:999px;border:1.5px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--char);color:#F3E8D0}
+.mix{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:14px 0 6px;font-size:13px;font-weight:600;color:#fff}
+.mix div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+ol.steps{padding-left:22px;margin:0}ol.steps li{margin-bottom:10px;padding-left:4px}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{font:800 19px 'Bricolage Grotesque',sans-serif;cursor:pointer}
+details p{margin:10px 0 0;color:var(--mute)}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
+.stat div{background:var(--char);color:#F3E8D0;border-radius:16px;padding:18px}
+.stat b{display:block;font:800 38px/1 'Bricolage Grotesque',sans-serif;color:#9AD085;margin-bottom:6px}
+footer{background:var(--char);color:#CDBFA2;padding:36px 0;font-size:15px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Punla</b><a href="#anatomy">Anatomy</a><a href="#guide">Guide</a><a href="#faq">FAQ</a><a href="#tracker">Sprout tracker</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<h1>Punla</h1>
+<p class="tag">Write. Refill. Plant.</p>
+<p>A 100% wood-free pencil with a clay-and-coir barrel, refillable 3 cm coconut charcoal leads, and a seed capsule on the end. When the writing is done, the pencil starts growing.</p>
+<a class="btn g" href="#tracker">Track your sprout</a> <a class="btn o" href="#anatomy">See how it works</a>
+<svg viewBox="0 0 800 120" role="img" aria-label="Punla pencil with a sprouting seed cap">
+<g transform="translate(40 0)">
+<path d="M42 40 C42 12 70 8 70 30" stroke="var(--leaf)" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M70 30 C86 10 104 16 100 34 C86 38 76 36 70 30Z" fill="var(--leaf)"/>
+<path d="M42 40 C30 24 14 26 16 42 C28 46 38 46 42 40Z" fill="var(--leaf2)"/>
+<rect x="20" y="50" width="110" height="40" rx="20" fill="#C9A878"/><rect x="20" y="50" width="110" height="40" rx="20" fill="none" stroke="var(--char)" stroke-width="2"/>
+<rect x="124" y="50" width="12" height="40" fill="var(--clay)"/>
+<rect x="136" y="50" width="480" height="40" fill="#A8764F"/>
+<rect x="136" y="50" width="480" height="9" fill="#C9A878"/><rect x="136" y="81" width="480" height="9" fill="#8C5C3A"/>
+<g stroke="#3b2c20" stroke-width="1" opacity=".5"><path d="M180 60v20M300 60v20M420 60v20M540 60v20"/></g>
+<path d="M616 50 L690 68 Q696 70 690 72 L616 90Z" fill="#8C5C3A"/>
+<path d="M670 63 L706 70 L670 77Z" fill="var(--char)"/></g></svg>
+<div class="facts">
+<div class="fact"><b>No wood. No stubs.</b><span>Saves trees and ends the tiny pencil stub that goes in the bin.</span></div>
+<div class="fact"><b>Farm waste, reused</b><span>Coconut coir, coconut shell charcoal, and old newspaper become the pencil.</span></div>
+<div class="fact"><b>₱22 per kit</b><span>Recommended SRP, with 7 leads in every kit.</span></div>
+</div></div></header>
+
+<section id="anatomy"><div class="wrap anat">
+<h2>Anatomy of a Punla</h2>
+<p style="margin-top:12px">Three parts, each made to be refilled, composted, or planted. Tap a part to learn more.</p>
+<svg viewBox="0 0 800 150" role="group" aria-label="Pencil parts">
+<g class="part on" data-p="lead"><path d="M620 40 L720 75 L620 110Z" fill="#8C5C3A"/><path d="M690 66 L740 75 L690 84Z" fill="var(--char)"/><rect x="560" y="62" width="60" height="26" fill="var(--char)"/></g>
+<g class="part" data-p="barrel"><rect x="150" y="40" width="470" height="70" fill="#A8764F"/><rect x="150" y="40" width="470" height="14" fill="#C9A878"/><rect x="150" y="96" width="470" height="14" fill="#C9A878"/><g stroke="#3b2c20" opacity=".4"><path d="M250 54v42M400 54v42"/></g></g>
+<g class="part" data-p="cap"><rect x="30" y="45" width="130" height="60" rx="30" fill="var(--leaf2)"/><rect x="140" y="45" width="14" height="60" fill="var(--clay)"/><circle cx="70" cy="75" r="5" fill="#E6D5B8"/><circle cx="90" cy="68" r="5" fill="#E6D5B8"/><circle cx="105" cy="82" r="5" fill="#E6D5B8"/></g>
+<g font-size="14" font-weight="600" fill="var(--ink)" font-family="Figtree,sans-serif" text-anchor="middle"><text x="95" y="135">Seed cap</text><text x="385" y="135">Barrel &amp; wrap</text><text x="640" y="135">Lead</text></g></svg>
+<div class="tabs" role="tablist" id="atabs"></div>
+<div class="panel" id="adetail" aria-live="polite"></div>
+</div></section>
+<section id="guide" class="band"><div class="wrap">
+<h2>Use it, refill it, plant it</h2>
+<div class="tabs" role="tablist" id="gtabs" style="margin-top:20px"></div>
+<div class="panel"><ol class="steps" id="gsteps"></ol></div>
+</div></section>
+<section id="faq"><div class="wrap">
+<h2>Questions, answered</h2>
+<div style="margin-top:20px">
+<details><summary>Will it survive a drop?</summary><p>The coir fibers in the barrel work like the straw in an adobe brick. They hold the clay together so it resists cracking on a bag-to-floor fall. Hard drops on concrete can still chip the barrel, and the newspaper and kraft wrap keep a chip from becoming a break.</p></details>
+<details><summary>Can the lead handle heat?</summary><p>Beeswax softens in high heat, but the coconut charcoal and clay powder give the lead its backbone. It handles a warm classroom or a bag in a jeepney. Avoid leaving it on a dashboard in direct sun.</p></details>
+<details><summary>Is anything in it wood?</summary><p>No. The barrel uses clay, coir, wood ash, and gawgaw (starch). The wrap is recycled diaryo, thin carton, and kraft tape. The leads use coconut charcoal, beeswax, clay, and coconut oil.</p></details>
+<details><summary>Which seeds work in the cap?</summary><p>A size 00 capsule fits small seeds such as pechay, basil, chili, tomato, and marigold. Use the tracker below to see what to expect from each.</p></details>
+<details><summary>What happens to the cap after planting?</summary><p>The tissue barrier and clay plug soften with moisture, so the seed can sprout while the capsule breaks down in the soil.</p></details>
+</div>
+<h2 style="margin-top:56px;font-size:clamp(26px,4vw,36px)">Impact snapshot</h2>
+<div class="stat">
+<div><b>0</b>trees used for the barrel</div>
+<div><b>3 cm</b>refills, so only the lead is replaced</div>
+<div><b>7</b>leads per kit: 4 loaded, 3 spare</div>
+<div><b>₱22</b>recommended SRP per kit</div></div>
+<p>Punla turns by-products into a tool: coconut coir, coconut shell charcoal, wood ash, and old newspaper. The last step grows a plant instead of adding to a landfill.</p>
+</div></section>
+<section id="tracker" class="band"><div class="wrap">
+<h2>Sprout &amp; growth tracker</h2>
+<p style="margin-top:12px">Plant your Punla seed cap, then log it here. Your day, week, care checklist, and notes stay saved on this device.</p>
+<div class="trk">
+<div class="panel">
+<div class="row"><div><label for="seed">Seed type</label><select id="seed"></select></div>
+<div><label for="start">Planted on</label><input type="date" id="start"></div></div>
+<button class="btn g" id="today">Day 1: planted today</button>
+<div id="dash" hidden>
+<div class="bigday"><b id="dayN">1</b><span id="weekN">Week 1</span></div>
+<p class="mini" id="seedNote"></p>
+<div class="ruler" id="ruler"><div class="fill"></div><div class="pin"><svg viewBox="0 0 34 46"><path d="M17 44V22" stroke="var(--leaf2)" stroke-width="3" stroke-linecap="round"/><path d="M17 24C6 24 2 14 4 8c10 0 14 6 13 16Z" fill="var(--leaf)"/><path d="M17 20C17 10 22 4 32 4c2 10-4 16-15 16Z" fill="var(--leaf2)"/></svg></div></div>
+<div class="ticks"><span>Day 1</span><span>Week 2</span><span>Week 3</span><span>Week 4+</span></div>
+<ul class="stages" id="stages"></ul>
+<p style="margin-top:16px"><button class="btn o" id="reset" style="padding:8px 16px;font-size:14px">Reset tracker</button></p>
+</div>
+<p class="empty" id="blank" style="margin-top:14px">Pick a seed and a date, or tap the green button, to start.</p>
+</div>
+
+<div class="panel" id="logp">
+<h3>Today’s care</h3>
+<p class="mini" id="logDay" style="margin:4px 0 12px"></p>
+<div id="tasks"></div>
+<p class="mini" style="margin:14px 0 4px">Care history (each square is a day)</p>
+<div class="hist" id="hist"></div>
+<h3>Progress notes</h3>
+<div class="row" style="grid-template-columns:1fr auto;margin:10px 0 0"><input type="text" id="noteIn" placeholder="e.g. First sprout showed today!" maxlength="140" aria-label="Progress note"><button class="btn" id="addNote">Add note</button></div>
+<ul class="notes" id="notes"></ul>
+</div></div></div></section>
+
+<footer id="contact"><div class="wrap">
+<p style="margin-bottom:14px"><b style="font-size:19px">Please contact for inquiries: Irizh Aranda</b></p>
+<p style="margin:0">Num: <a href="tel:09452734952">09452734952</a><br>Yr/block: 2.2Bsbamm<br>The product name: Punla — The Eco-Sustainable Pencil</p>
+<p style="margin:18px 0 0;font-size:14px;opacity:.8">Created by Group H. Write. Refill. Plant.</p>
+</div></footer>
+
+<script>
+var SEEDS={Pechay:{d:"3–5",t:"Fast and forgiving. Keep soil evenly moist."},Basil:{d:"5–10",t:"Loves warmth and a sunny windowsill."},Chili:{d:"7–14",t:"Slow starter. Keep it warm and be patient."},Tomato:{d:"5–10",t:"Needs strong light once sprouted."},Marigold:{d:"4–7",t:"Hardy, and a good companion plant for veggies."}};
+var STAGES=[["Days 1–3","Capsule hydration & softening",1,3],["Days 4–7","First sprout (cotyledons)",4,7],["Weeks 2–3","True leaves & stem growth",8,21],["Week 4+","Transplant or harvest readiness",22,999]];
+var TASKS=[["water","Light misting or watering"],["sun","Sunlight check (a few hours of light)"],["soil","Soil moisture check"]];
+var S={seed:"Pechay",start:"",log:{},notes:[]};
+try{var r=localStorage.getItem("punla.v1");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+function save(){try{localStorage.setItem("punla.v1",JSON.stringify(S))}catch(e){}}
+var $=function(i){return document.getElementById(i)};
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function parse(s){var p=s.split("-");return new Date(+p[0],p[1]-1,+p[2])}
+function dayOf(s){var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate());return Math.round((t-parse(s))/864e5)+1}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+$("seed").innerHTML=Object.keys(SEEDS).map(function(k){return"<option>"+k+"</option>"}).join("");
+function render(){
+$("seed").value=S.seed;$("start").value=S.start;
+var on=!!S.start;$("dash").hidden=!on;$("blank").hidden=on;$("logp").style.opacity=on?1:.5;
+if(!on){$("tasks").innerHTML='<p class="empty">Set a planting date to start your care log.</p>';$("hist").innerHTML="";$("notes").innerHTML="";$("logDay").textContent="";return}
+var d=dayOf(S.start);
+if(d<1){$("dayN").textContent="—";$("weekN").textContent="Planting date is in the future";}
+else{$("dayN").textContent=d;$("weekN").textContent="Week "+Math.ceil(d/7)+" · day "+d+" since planting"}
+var sd=SEEDS[S.seed];$("seedNote").textContent=S.seed+" usually sprouts in "+sd.d+" days. "+sd.t;
+var pct=Math.max(0,Math.min(d,30))/30*100;$("ruler").querySelector(".fill").style.width=pct+"%";$("ruler").querySelector(".pin").style.left=Math.max(5,Math.min(pct,96))+"%";
+$("stages").innerHTML=STAGES.map(function(s){var c=d>s[3]?"done":(d>=s[2]&&d<=s[3]?"on":"");return'<li class="'+c+'"><b>'+s[0]+'</b>'+s[1]+"</li>"}).join("");
+var td=iso(new Date());S.log[td]=S.log[td]||{};
+$("logDay").textContent="Day "+Math.max(d,1)+" · "+new Date().toLocaleDateString("en-PH",{weekday:"long",month:"short",day:"numeric"});
+$("tasks").innerHTML=TASKS.map(function(t){return'<label class="chk"><input type="checkbox" data-t="'+t[0]+'"'+(S.log[td][t[0]]?" checked":"")+"> "+t[1]+"</label>"}).join("");
+var h="";for(var i=1;i<=Math.min(Math.max(d,1),35);i++){var dt=new Date(parse(S.start));dt.setDate(dt.getDate()+i-1);var l=S.log[iso(dt)]||{};var n=TASKS.filter(function(t){return l[t[0]]}).length;h+='<i class="'+(n==3?"f":n?"p":"")+'" title="Day '+i+": "+n+'/3 tasks"></i>'}
+$("hist").innerHTML=h;
+$("notes").innerHTML=S.notes.length?S.notes.map(function(n,i){return"<li><span><b>Day "+n.day+":</b> "+esc(n.text)+'</span><button data-i="'+i+'" aria-label="Delete note">×</button></li>'}).join(""):'<li class="empty" style="background:none;padding:0">No notes yet. Log your first sprout when it shows up.</li>';
+}
+$("seed").onchange=function(){S.seed=this.value;save();render()};
+$("start").onchange=function(){S.start=this.value;save();render()};
+$("today").onclick=function(){S.start=iso(new Date());save();render()};
+$("reset").onclick=function(){if(confirm("Clear your planting date, care log, and notes?")){S.start="";S.log={};S.notes=[];save();render()}};
+$("tasks").onchange=function(e){var t=e.target.dataset.t;if(!t)return;var td=iso(new Date());S.log[td][t]=e.target.checked;save();render()};
+function addNote(){var v=$("noteIn").value.trim();if(!v||!S.start)return;S.notes.push({day:Math.max(dayOf(S.start),1),text:v});$("noteIn").value="";save();render()}
+$("addNote").onclick=addNote;$("noteIn").onkeydown=function(e){if(e.key==="Enter")addNote()};
+$("notes").onclick=function(e){var i=e.target.dataset.i;if(i!=null){S.notes.splice(+i,1);save();render()}};
+render();
+
+var PARTS={
+lead:["Refillable 3 cm charcoal leads","Wax-and-oil-bonded coconut charcoal. Four leads stack inside the barrel and three more come in the packaging. When one wears down, you swap only the lead and keep the pencil.",[["Coconut charcoal 55%","#26231F"],["Beeswax 30%","#C9A23A"],["Clay powder 10%","#B5603D"],["Coconut oil 5%","#6A8F4E"]]],
+barrel:["Biodegradable barrel & outer wrap","Molded from pottery clay, coconut coir fibers, wood ash, and gawgaw (starch paste). It is reinforced with recycled diaryo, thin carton, and kraft paper gummed tape for a firm, tactile grip with no wood and no plastic."],
+cap:["Plantable seed cap","A size 00 capsule holds the seeds, sealed with a tiny pottery clay plug and a tissue barrier. When the pencil is retired, the cap goes into soil and starts the next chapter."]};
+var at=$("atabs");Object.keys(PARTS).forEach(function(k,i){var b=document.createElement("button");b.textContent=PARTS[k][0].split(" ").slice(0,3).join(" ");b.setAttribute("role","tab");b.dataset.k=k;b.onclick=function(){pick(k)};at.appendChild(b)});
+function pick(k){[].forEach.call(at.children,function(b){b.setAttribute("aria-selected",b.dataset.k==k)});[].forEach.call(document.querySelectorAll(".part"),function(g){g.classList.toggle("on",g.dataset.p==k)});
+var p=PARTS[k],h="<h3>"+p[0]+"</h3><p style='margin-top:8px'>"+p[1]+"</p>";
+if(p[2])h+='<div class="mix">'+p[2].map(function(m,i){return'<div style="background:'+m[1]+";flex:"+[55,30,10,5][i]+'" title="'+m[0]+'">'+(i<2?m[0]:"")+"</div>"}).join("")+'</div><p class="mini">'+p[2].map(function(m){return m[0]}).join(" · ")+"</p>";
+$("adetail").innerHTML=h}
+[].forEach.call(document.querySelectorAll(".part"),function(g){g.onclick=function(){pick(g.dataset.p)}});
+pick("lead");
+
+var G={
+"Load & swap leads":["Hold the barrel with the seed cap end up and gently twist the cap off.","Drop a fresh 3 cm lead into the opening so it sits on top of the stack.","Press the stack down with the capped end until the worn lead stub pushes out of the tip.","Twist the cap back on. Keep the 3 spare leads in the packaging pouch."],
+"Write smoothly":["Hold at a relaxed angle. The wax-charcoal lead glides best with light pressure.","Let the lead do the work. Pressing hard wears it faster and can snap a 3 cm lead.","Rotate the pencil slowly as you write to keep the tip even.","Store it flat and away from direct sun so the wax stays firm."],
+"Plant the cap":["When the pencil is used up, twist off the seed cap and keep the clay plug end intact.","Fill a pot or seed tray with moist, loose soil.","Make a hole at a 45° angle and slide the cap in, leaving the tip just under the surface.","Mist lightly every day, keep it in bright light, and log it in the tracker below."]};
+var gt=$("gtabs");Object.keys(G).forEach(function(k){var b=document.createElement("button");b.textContent=k;b.setAttribute("role","tab");b.onclick=function(){gp(k)};gt.appendChild(b)});
+function gp(k){[].forEach.call(gt.children,function(b){b.setAttribute("aria-selected",b.textContent==k)});$("gsteps").innerHTML=G[k].map(function(s){return"<li>"+s+"</li>"}).join("")}
+gp("Load & swap leads");
+</script>
+</body>
+</html>
